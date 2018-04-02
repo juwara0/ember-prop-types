@@ -21,3 +21,8 @@ bower.json
 dependency-snapshot.json
 ember-cli-build.js
 testem.js
+
+# ember-try
+.node_modules.ember-try/
+bower.json.ember-try
+package.json.ember-try
