@@ -10,6 +10,7 @@ import PropTypes, {getDef, logger, validators} from '../utils/prop-types'
 const objectAssign = Object.assign || assign || merge
 
 export const settings = {
+  disableLogging: getWithDefault(config, 'ember-prop-types.disableLogging', false),
   requireComponentPropTypes: getWithDefault(
     config, 'ember-prop-types.requireComponentPropTypes', false
   ),
@@ -21,7 +22,9 @@ export const settings = {
 
 export const helpers = {
   handleError (ctx, message) {
-    logger.warn(ctx, message, settings.throwErrors)
+    if (!settings.disableLogging) {
+      logger.warn(ctx, message, settings.throwErrors)
+    }
   },
 
   /* eslint-disable complexity */
